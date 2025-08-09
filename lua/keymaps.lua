@@ -16,6 +16,24 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
+-- Enter terminal with default horizontal split
+vim.keymap.set('n', '<leader>j', '<Cmd>split | terminal<CR>', { desc = 'Open horizontal terminal' })
+-- Enter terminal with vertical split
+vim.keymap.set('n', '<leader>jv', '<Cmd>vsplit | terminal<CR>', { desc = 'Open horizontal terminal' })
+
+-- Custom keybinds for moving between words in insert mode using mac-native ways
+vim.keymap.set('i', '<M-b>', '<C-o>b', { noremap = true }) -- Option + ←
+vim.keymap.set('i', '<M-f>', '<C-o>w', { noremap = true }) -- Option + →
+
+-- Insert mode: mimic shell behavior for Cmd + ← / →
+vim.keymap.set('i', '<C-a>', '<C-o>0', { noremap = true }) -- Cmd + ←
+vim.keymap.set('i', '<C-e>', '<C-o>$', { noremap = true }) -- Cmd + →
+
+-- Fugitive quick access
+vim.keymap.set('n', '<leader>gs', '<cmd>G<CR>', { desc = 'Git Status' })
+vim.keymap.set('n', '<leader>gb', '<cmd>Gblame<CR>', { desc = 'Git Blame' })
+vim.keymap.set('n', '<leader>gd', '<cmd>Gdiffsplit<CR>', { desc = 'Git Diff Split' })
+
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')

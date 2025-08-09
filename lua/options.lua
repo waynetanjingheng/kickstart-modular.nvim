@@ -71,4 +71,7 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+vim.opt.tabstop = 4 -- Display tab characters as 4 spaces wide
+vim.opt.shiftwidth = 4 -- Set the number of spaces for auto-indentation and shifting commands
+vim.opt.expandtab = true -- Convert tabs to spaces when inserting
 -- vim: ts=2 sts=2 sw=2 et
