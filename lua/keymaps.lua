@@ -16,11 +16,17 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
--- Enter terminal with default horizontal split
-vim.keymap.set('n', '<leader>j', '<Cmd>split | terminal<CR>', { desc = 'Open horizontal terminal' })
--- Enter terminal with vertical split
-vim.keymap.set('n', '<leader>jv', '<Cmd>vsplit | terminal<CR>', { desc = 'Open horizontal terminal' })
+vim.keymap.set('n', '<leader>t', function()
+  vim.cmd 'split'
+  vim.cmd 'terminal'
+  vim.cmd 'resize 15'
+end, { desc = 'Open terminal' })
 
+-- -- Enter terminal with default horizontal split
+-- vim.keymap.set('n', '<leader>j', '<Cmd>split | terminal<CR>', { desc = 'Open horizontal terminal' })
+-- -- Enter terminal with vertical split
+-- vim.keymap.set('n', '<leader>jv', '<Cmd>vsplit | terminal<CR>', { desc = 'Open horizontal terminal' })
+--
 -- Custom keybinds for moving between words in insert mode using mac-native ways
 vim.keymap.set('i', '<M-b>', '<C-o>b', { noremap = true }) -- Option + ←
 vim.keymap.set('i', '<M-f>', '<C-o>w', { noremap = true }) -- Option + →
@@ -48,6 +54,10 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Automatically keep selection after indent
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent and reselect' })
+vim.keymap.set('v', '<', '<gv', { desc = 'Unindent and reselect' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })

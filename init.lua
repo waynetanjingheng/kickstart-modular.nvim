@@ -110,3 +110,8 @@ require 'lazy-plugins'
 
 -- Theme
 vim.opt.termguicolors = true
+
+vim.opt.clipboard:append 'unnamedplus'
+
+vim.opt.number = true
+vim.opt.relativenumber = true
